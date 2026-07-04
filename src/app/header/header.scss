@@ -1,0 +1,119 @@
+* {
+    box-sizing: border-box;
+}
+
+.header {
+    background-color: rgb(78, 78, 78);
+    position: fixed;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    top: 0;
+    width: 100%;
+    height: 75px;
+    color: #fcfcfc;
+
+    .header1st {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        width: 25%;
+        min-width: 300px;
+        padding: 12.5px;
+        flex-shrink: 0;
+
+        :not(.header-music-icon) {
+            margin-left: 15px;
+        }
+
+        .header-music-icon {
+            width: 50px;
+            height: 50px;
+            filter: invert(90%);
+        }
+
+        p {
+            font-size: 1.5rem;
+            text-wrap: nowrap;
+        }
+
+        .live-div {
+            width: 20px;
+            height: 20px;
+            border-radius: 20px;
+            background-color: black;
+            display: block;
+            transition: 
+                background-color 0.5s ease,
+                border 0.5s ease;
+            border: 1px solid #fcfcfc;
+            flex-shrink: 0;
+        }
+    }
+
+    .header2nd {
+        width: 50%;
+        min-width: 500px;
+        display: flex;
+        justify-content: center;
+        flex-shrink: 0;
+
+        .input-bar-container {
+            box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.2);
+            width: 75%;
+            display: flex;
+            flex-direction: row;
+
+
+            .input-bar {
+                padding: 12.5px;
+                width: 100%;
+                border-radius: 15px 0 0 15px;
+                border: none;
+                transition: background-color 0.5s ease;
+                background-color: rgb(187, 187, 187);
+
+                &:focus, &:hover {
+                    outline: none;
+                    background-color: rgb(240, 240, 240);
+                }
+
+
+            }
+
+            .search-button {
+                padding: 12.5px 25px;
+                border-radius: 0 15px 15px 0;
+                border: none;
+                border-left: 1px solid gray;
+                transition: background-color 0.5s ease;
+                background-color: rgb(187, 187, 187);
+
+                &:hover {
+                    outline: none;
+                    background-color: rgb(240, 240, 240);
+                    cursor: pointer;
+                }
+
+                img {
+                    width: 20px;
+                    height: 20px;
+                }
+            }
+        }
+        
+
+    }
+
+    .header3rd {
+        width: 25%;
+        min-width: 200px;
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
+        padding: 12.5px;
+        flex-shrink: 0;
+        
+    }
+}
