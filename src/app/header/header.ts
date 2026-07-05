@@ -1,8 +1,10 @@
-import { Component, inject, effect, ElementRef, AfterViewInit, ViewChild} from '@angular/core';
+import { Component, ElementRef, AfterViewInit, ViewChild} from '@angular/core';
+import { RouterLink } from '@angular/router';
+
 
 @Component({
   selector: 'app-header',
-  imports: [],
+  imports: [RouterLink],
   templateUrl: './header.html',
   styleUrl: './header.scss',
 })

@@ -13,44 +13,57 @@
     width: 100%;
     height: 75px;
     color: #fcfcfc;
+    
+    a {
+        text-decoration: none;
+        color: inherit;
+        transition: background-color 0.5s ease;
 
-    .header1st {
-        display: flex;
-        flex-direction: row;
-        align-items: center;
-        width: 25%;
-        min-width: 300px;
-        padding: 12.5px;
-        flex-shrink: 0;
-
-        :not(.header-music-icon) {
-            margin-left: 15px;
+        &:hover {
+            cursor: pointer;
+            background-color: rgb(148, 1, 1);
         }
 
-        .header-music-icon {
-            width: 50px;
-            height: 50px;
-            filter: invert(90%);
-        }
-
-        p {
-            font-size: 1.5rem;
-            text-wrap: nowrap;
-        }
-
-        .live-div {
-            width: 20px;
-            height: 20px;
-            border-radius: 20px;
-            background-color: black;
-            display: block;
-            transition: 
-                background-color 0.5s ease,
-                border 0.5s ease;
-            border: 1px solid #fcfcfc;
+        .header1st {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            width: 25%;
+            min-width: 300px;
+            padding: 12.5px;
             flex-shrink: 0;
+
+            :not(.header-music-icon) {
+                margin-left: 15px;
+            }
+
+            .header-music-icon {
+                width: 50px;
+                height: 50px;
+                filter: invert(90%);
+            }
+
+            p {
+                font-size: 1.5rem;
+                text-wrap: nowrap;
+            }
+
+            .live-div {
+                width: 20px;
+                height: 20px;
+                border-radius: 20px;
+                background-color: black;
+                display: block;
+                transition: 
+                    background-color 0.5s ease,
+                    border 0.5s ease;
+                border: 1px solid #fcfcfc;
+                flex-shrink: 0;
+            }
         }
     }
+
+    
 
     .header2nd {
         width: 50%;
@@ -115,6 +128,11 @@
         padding: 12.5px;
         flex-shrink: 0;
         
+        a {
+            &:hover {
+                background-color: transparent;
+            }
+        }
         div {
             width: 50px;
             height: 50px;
@@ -128,7 +146,7 @@
             transition: background-color 0.5s ease;
 
             &:hover {
-                background-color: black;
+                background-color: rgb(148, 1, 1);
                 cursor: pointer;
             }
 
