@@ -1,5 +1,6 @@
-import { Component, ElementRef, AfterViewInit, ViewChild} from '@angular/core';
+import { Component, ElementRef, AfterViewInit, ViewChild, inject} from '@angular/core';
 import { RouterLink } from '@angular/router';
+import { SearchService } from '../services/search';
 
 
 @Component({
@@ -11,6 +12,7 @@ import { RouterLink } from '@angular/router';
 export class Header implements AfterViewInit {
   @ViewChild('livediv') liveDiv!: ElementRef;
   isRed = false;
+  private searchService = inject(SearchService);
 
   ngAfterViewInit() {
     setInterval(() => {
@@ -19,5 +21,11 @@ export class Header implements AfterViewInit {
       this.liveDiv.nativeElement.style.border = this.isRed ? '1.5px solid black' : '1.5px solid white';
     
     }, 1500);
+  }
+
+  onSearchInput(event: Event) {
+    const inputElement = event.target as HTMLInputElement;
+    const searchTerm = inputElement.value;
+    this.searchService.setSearchTerm(searchTerm);
   }
 }

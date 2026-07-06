@@ -7,19 +7,96 @@
     align-items: start;
     padding: 24px;
     gap: 24px;
+    min-width: 1200px;
+    min-height: 100vh;
 
     a {
         display: block;
-        flex: 1 1 clamp(180px, 22vw, 700px);
+        flex: 0 1 clamp(180px, 22vw, 425.5px);
         text-decoration: none;
+        color: white;
+        border: 1px solid rgba(0,0,0, 0.4);
+        overflow: hidden;
+        border-radius: 20px;
+        transition: 
+            box-shadow 0.5s ease-in-out,
+            transform 0.5s ease-in-out;
+        
+        &:hover {
+            box-shadow: 0 0 24px 24px rgba(255, 0, 0, 0.5);
+            transform: scale(1.02);
+        }
+        &:hover div div {
+            background-color: rgb(180, 0, 0);
+        }
 
-        div {
+        > div {
             width: 100%;
+            display: flex;
+            flex-direction: column;
 
-            img {
+            > img {
                 width: 100%;
                 height: auto;
                 display: block;
+            }
+
+            div {
+                background-color: #5f1e1e;
+                display: flex;
+                flex-direction: row;
+                justify-content: start;
+                height: clamp(40px, 10vw, 85px);
+                min-height: 40px;
+                transition: background-color 0.5s ease-in-out;
+
+                .author-photo-div {
+                    width: 15%;
+                    flex-shrink: 1;
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: center;
+                    align-items: center;
+                    padding: 0 2%;
+                    overflow: hidden;
+
+                    img {
+                        border-radius: 50%;
+                        border: 1px solid rgb(56, 56, 56);
+                    }
+                }
+
+                .author-info-div {
+                    margin-left: 0%;
+                    min-width: 70%;
+                    width: 70%;
+                    display: flex;
+                    flex-direction: column;
+                    padding: 2% 0;
+
+                    p {
+                        line-break: break-word;
+                        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+                        font-family: Arial, sans-serif;
+                        margin: 0;
+                    }
+
+                    .video-title {
+                        font-size: clamp(0.8rem, 1.5vw, 1.0rem);
+                        font-weight: bold;
+                        margin-top: 0;
+                    }
+                    .video-author {
+                        font-size: clamp(0.7rem, 1.2vw, 0.9rem);
+                        margin-top: 0.5%;
+                    }
+
+                    .video-info {
+                        font-size: clamp(0.6rem, 1.0vw, 0.8rem);
+                        margin-top: 0.5%;
+                    }
+                    
+                }
             }
         }
     }
