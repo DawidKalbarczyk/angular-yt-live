@@ -1,1 +1,9 @@
-<img *ngFor="let video of videos" [src]="video.img_src" [alt]="video.title">
+<a *ngFor="let video of videos" href="{{video.url}}" target="_blank" class="video-link">
+    <div>
+        <img [src]="video.img_src" [alt]="video.title">
+        <div>
+            <img [src]="video.author_src" [alt]="video.author">
+        </div>
+    </div>
+</a>
+
