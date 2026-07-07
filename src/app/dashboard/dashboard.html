@@ -6,7 +6,7 @@
                 <img [src]="video.author_src" [alt]="video.author">
             </div>
             <div class="author-info-div">
-                <p class="video-title">{{video.title}}</p>
+                <p class="video-title">{{video.title | titleFormat}}</p>
                 <p class="video-author">{{video.author}}</p>   
                 <p class="video-info">{{video.date | dateFormat}} - {{video.views | viewFormat}} views</p>
 

@@ -5,10 +5,11 @@ import { DateFormatPipe } from '../pipes/date-format-pipe';
 import { ViewFormatPipe } from '../pipes/view-format-pipe';
 import { SearchService } from '../services/search';
 import { SearchBarPipe } from '../pipes/search-bar-pipe';
+import { TitleFormatPipe } from '../pipes/title-format-pipe';
 
 @Component({
   selector: 'app-dashboard',
-  imports: [NgFor, DateFormatPipe, ViewFormatPipe, SearchBarPipe],
+  imports: [NgFor, DateFormatPipe, ViewFormatPipe, SearchBarPipe, TitleFormatPipe],
   templateUrl: './dashboard.html',
   styleUrl: './dashboard.scss',
 })
