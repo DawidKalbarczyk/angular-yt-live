@@ -16,11 +16,19 @@
         
     </div>
     <div class="header3rd">
-        <div>
+        <div #not_panel class="notification-panel">
+            <app-notification-panel></app-notification-panel>
+        </div>
+        <div class="header3rd-icons-div" 
+        #notification_clicked
+        (mouseenter)="showNotificationPanel()" 
+        (mouseleave)="hideNotificationPanel()"
+        (click)="toggleNotificationPanel()">
             <img src="icons/notification.png" alt="Notification">
+            
         </div>
         <a routerLink="/user">
-            <div>
+            <div class="header3rd-icons-div">
                 <img src="icons/user.png" alt="User">
             </div>
         </a>

@@ -128,13 +128,50 @@
         align-items: center;
         padding: 12.5px;
         flex-shrink: 0;
+        position: relative;
         
         a {
             &:hover {
                 background-color: transparent;
             }
         }
-        div {
+
+        .notification-panel {
+                position: absolute;
+                display: flex;
+                bottom: 0px;
+                left: 0;
+                width: 95%;
+                height: 0px;
+                margin: 0;
+                border-radius: 0;
+                align-items: start;
+                justify-content: start;
+                overflow: normal;
+                background-color: red;
+                display: block;
+                opacity: 0;
+                pointer-events: none;
+                overflow-y: scroll;
+                scrollbar-width: auto;
+                scroll-behavior: smooth;
+                scrollbar-color: rgba(0, 0, 0, 0.5) transparent;
+                transition: 
+                    opacity 0.5s ease-in-out,
+                    height 0.5s ease-in-out,
+                    bottom 0.5s ease-in-out,
+                    pointer-events 0.5s ease-in-out;
+
+                
+            }
+            .notification-panel.notification-panel-toggle.notification-panel-toggle {
+                opacity: 1;
+                pointer-events: auto;
+                height: 300px;
+                bottom: -300px;
+            }
+
+        .header3rd-icons-div {
             width: 50px;
             height: 50px;
             border-radius: 50%;
@@ -151,10 +188,12 @@
                 cursor: pointer;
             }
 
+
             img {
                 width: 30px;
                 height: 30px;
                 filter: invert(90%);
+                
             }
         }
     }
