@@ -4,11 +4,12 @@ import { Pipe, PipeTransform } from '@angular/core';
   name: 'dateFormat',
 })
 export class DateFormatPipe implements PipeTransform {
-  transform(date: Date): string {
-    const d = new Date();
+  transform(daysFromToday: string): string {
+    const differenceInDays = parseInt(daysFromToday, 10);
 
-    const differenceInMilliseconds = d.getTime() - date.getTime();
-    const differenceInDays = Math.floor(differenceInMilliseconds / (1000 * 60 * 60 * 24));
+    if (Number.isNaN(differenceInDays)) {
+      return 'Unknown date';
+    }
 
     if (differenceInDays < 1) {
       return 'Today';

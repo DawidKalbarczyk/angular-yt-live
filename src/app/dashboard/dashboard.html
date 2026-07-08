@@ -1,4 +1,11 @@
-<a *ngFor="let video of videos | searchBar: searchService.searchTerm()" href="{{video.url}}" target="_blank" class="video-link">
+<ng-container *ngIf="videos | searchBar: searchService.searchTerm() as filteredVideos">
+
+<a *ngFor="let video of filteredVideos | 
+slice: 0:displayLimit()"
+href="{{video.url}}" 
+target="_blank" 
+class="video-link" 
+#observed>
     <div>
         <img [src]="video.img_src" [alt]="video.title">
         <div>
@@ -8,10 +15,14 @@
             <div class="author-info-div">
                 <p class="video-title">{{video.title | titleFormat}}</p>
                 <p class="video-author">{{video.author}}</p>   
-                <p class="video-info">{{video.date | dateFormat}} - {{video.views | viewFormat}} views</p>
-
+                <p class="video-info">{{video.days_from_today | dateFormat}} - {{video.views | viewFormat}} views</p>
             </div>
         </div>
     </div>
 </a>
 
+@if (loadingMore() && displayLimit() < filteredVideos.length) {
+    <div class="loading-spinner"></div>
+}
+
+</ng-container>

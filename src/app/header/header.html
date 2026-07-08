@@ -1,36 +1,44 @@
-<div class="header">
-    <a routerLink="">
-        <div class="header1st">
-            <img src="icons/musical-note.png" alt="Logo" class="header-music-icon">
-            <p>YouTube Music Live</p>
-            <div #livediv class="live-div"></div>
-        </div>
-    </a>
-    <div class="header2nd">
-        <div class="input-bar-container">
-            <input type="text" placeholder="Search..." class="input-bar" (input)="onSearchInput($event)">
-            <button class="search-button">
-                <img src="icons/search.png" alt="Search">
-            </button>
-        </div>
-        
-    </div>
-    <div class="header3rd">
-        <div #not_panel class="notification-panel">
-            <app-notification-panel></app-notification-panel>
-        </div>
-        <div class="header3rd-icons-div" 
-        #notification_clicked
-        (mouseenter)="showNotificationPanel()" 
-        (mouseleave)="hideNotificationPanel()"
-        (click)="toggleNotificationPanel()">
-            <img src="icons/notification.png" alt="Notification">
-            
-        </div>
-        <a routerLink="/user">
-            <div class="header3rd-icons-div">
-                <img src="icons/user.png" alt="User">
+<div>
+    <div class="header">
+        <a routerLink="">
+            <div class="header1st">
+                <img src="icons/musical-note.png" alt="Logo" class="header-music-icon">
+                <p>YouTube Music Live</p>
+                <div #livediv class="live-div"></div>
             </div>
         </a>
+        <div class="header2nd">
+            <div class="input-bar-container">
+                <input type="text" placeholder="Search..." class="input-bar" (input)="onSearchInput($event)">
+                <button class="search-button">
+                    <img src="icons/search.png" alt="Search">
+                </button>
+            </div>
+            
+        </div>
+        <div class="header3rd">
+            <div #not_panel class="notification-panel">
+                <app-notification-panel></app-notification-panel>
+            </div>
+            <div class="header3rd-icons-div" 
+            #notification_clicked
+            (mouseenter)="showNotificationPanel()" 
+            (mouseleave)="hideNotificationPanel()"
+            (click)="toggleNotificationPanel()">
+                <img src="icons/notification.png" alt="Notification">
+                
+            </div>
+            <a routerLink="/user">
+                <div class="header3rd-icons-div">
+                    <img src="icons/user.png" alt="User">
+                </div>
+            </a>
+        </div>
+    </div>
+    <div class="educational-purposes">
+        <p>This project is intended for educational 
+            purposes only. Any externally sourced 
+            materials are used strictly for learning and demonstration.
+        </p>
     </div>
 </div>
