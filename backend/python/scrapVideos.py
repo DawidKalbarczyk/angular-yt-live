@@ -37,33 +37,19 @@ VIDEO_URLS = [
     'https://www.youtube.com/watch?v=DMMyLDapGy8'
 ]
 
-# Cache: channel_url -> avatar_url (żeby nie odpytywać tego samego kanału
-# wielokrotnie, gdy kilka filmów na liście pochodzi z tego samego kanału)
 _avatar_cache = {}
 
 
 def _pick_avatar_url(thumbnails):
-    """
-    Z listy 'thumbnails' zwróconej przez yt-dlp dla kanału wybiera
-    URL do faktycznego avatara (a nie do bannera kanału).
-
-    Lista miksuje wpisy avatara (id zwykle zawiera 'avatar', np.
-    'avatar_uncropped') oraz bannera (id zawiera 'banner', np.
-    'banner_uncropped'). Kolejność w liście NIE jest gwarantowana
-    rosnąco po rozmiarze, więc branie ostatniego elementu (thumbnails[-1])
-    jest niepewne i potrafi zwrócić banner zamiast avatara.
-    """
+   
     if not thumbnails:
         return None
 
-    # 1) Najpierw szukamy jawnie oznaczonych avatarów
     avatar_candidates = [
         t for t in thumbnails
         if 'avatar' in (t.get('id') or '').lower()
     ]
 
-    # 2) Jeśli nic nie znaleziono po id, odrzucamy przynajmniej to,
-    #    co jawnie jest bannerem, i bierzemy resztę jako kandydatów
     if not avatar_candidates:
         avatar_candidates = [
             t for t in thumbnails
@@ -73,8 +59,7 @@ def _pick_avatar_url(thumbnails):
     if not avatar_candidates:
         return None
 
-    # Avatary YouTube są zawsze kwadratowe (width == height) - to dodatkowy
-    # filtr, który pomaga odrzucić resztki bannerów bez jawnego id.
+   
     square_candidates = [
         t for t in avatar_candidates
         if t.get('width') and t.get('height') and t['width'] == t['height']
@@ -97,7 +82,7 @@ def get_channel_avatar(channel_url):
         'quiet': True,
         'no_warnings': True,
         'skip_download': True,
-        'extract_flat': True,  # nie pobieramy listy filmów kanału, tylko metadane - szybciej
+        'extract_flat': True,  
     }
 
     avatar_url = None
@@ -108,9 +93,7 @@ def get_channel_avatar(channel_url):
         thumbnails = channel_info.get('thumbnails', []) if channel_info else []
         avatar_url = _pick_avatar_url(thumbnails)
 
-        # Fallback: jeśli extract_flat nie zwrócił nic sensownego,
-        # spróbuj jeszcze raz bez extract_flat (pełna ekstrakcja strony
-        # kanału zwykle ma pełniejszy zestaw miniatur).
+        
         if not avatar_url:
             ydl_opts_full = dict(ydl_opts, extract_flat=False)
             with yt_dlp.YoutubeDL(ydl_opts_full) as ydl:
@@ -149,7 +132,7 @@ def scrap_video(url, video_id_num):
 
         video_id = info.get('id')
 
-        # channel_url wskazuje na stronę kanału (np. https://www.youtube.com/channel/UC...)
+
         channel_url = info.get('channel_url') or info.get('uploader_url')
         if not channel_url:
             print(f"Warning: no channel_url/uploader_url for video {url}, avatar won't be fetched")
