@@ -116,6 +116,14 @@ def scrap_video(url, video_id_num):
         response.raise_for_status()
         html_text = response.text
 
+        with open(f'debug_{video_id_num}.html', 'w', encoding='utf-8') as f:
+            f.write(html_text)
+        print(f"Status: {response.status_code}, długość HTML: {len(html_text)}")
+
+        if 'consent.youtube.com' in html_text or response.status_code != 200:
+            print(f"Zablokowane/consent wall dla {url}")
+            return None
+
         title_match = re.search(r'<meta name="title" content="([^"]+)"', html_text)
         if not title_match:
             title_match = re.search(r'<meta property="og:title" content="([^"]+)"', html_text)
