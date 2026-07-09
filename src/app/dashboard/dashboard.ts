@@ -34,7 +34,7 @@ export class Dashboard implements OnInit, AfterViewInit {
   @ViewChildren('observed') observedElements!: QueryList<ElementRef>;
 
   ngOnInit() {
-    this.http.get<Video[]>('videos.json').subscribe((data) => {
+    this.http.get<Video[]>('/videos.json').subscribe((data) => {
       this.videos = data;
       this.cdr.detectChanges();
     });
