@@ -109,7 +109,7 @@ def scrap_video(url, video_id_num):
         'Accept-Language': 'pl-PL,pl;q=0.9,en-US;q=0.8,en;q=0.7'
     }    
 
-    cookies = {'CONSENT': 'YES+1'}
+    cookies = {'CONSENT': 'YES+cb.20210328-17-p0.pl+FX+374'}
     
     try:
         response = requests.get(url, headers=headers, cookies=cookies)
