@@ -30,7 +30,6 @@ yarn-error.log
 .history/*
 
 # Miscellaneous
-/public/videos.json
 /.angular/cache
 .sass-cache/
 /connect.lock
